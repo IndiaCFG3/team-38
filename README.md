@@ -1,11 +1,9 @@
-# Verilog Master
+# Yuva Parivartan
 
 ![](https://img.shields.io/github/license/CybSec-NITW/WeaponHEX)
 ![](https://img.shields.io/pypi/pyversions/django.svg)
 
-Verilog is a hardware descriptive language used to model modern day digital systems like flip-flops, memories and microprocessors. It is a very powerful tool to design and simulate digital hardwares at any level.
-
-This project is about providing an interactive environment for hardware enthusiasts to learn this language.
+Source code of the project
 
 ## Instructions
 
@@ -16,16 +14,17 @@ Open a terminal and change current directory to your dev or projects folder.
 Then follow these steps
 ```
 $ pip install virtualenv
-$ mkdir verilog-master
-$ cd verilog-master
-$ git clone https://github.com/Rushikesh1008/Verilog-Master.git .
+$ mkdir codeforgood
+$ cd codeforgood
+$ git clone https://github.com/IndiaCFG3/team-38.git .
+// A login would be required since it is a private repository
 $ virtualenv -p python3 .
 $ .\Scripts\activate                               #For MAC/Linux -> . bin/activate
-(verilog-master) $ pip install -r requirements.txt
-(verilog-master) $ cd src
-(verilog-master) $ python manage.py makemigrations #For MAC/Linux -> python3 manage.py makemigrations
-(verilog-master) $ python manage.py migrate        #For MAC/Linux -> python3 manage.py migrate
-(verilog-master) $ python manage.py runserver      #For MAC/Linux -> python3 manage.py runserver
+(codeforgood) $ pip install -r requirements.txt
+(codeforgood) $ cd src
+(codeforgood) $ python manage.py makemigrations #For MAC/Linux -> python3 manage.py makemigrations
+(codeforgood) $ python manage.py migrate        #For MAC/Linux -> python3 manage.py migrate
+(codeforgood) $ python manage.py runserver      #For MAC/Linux -> python3 manage.py runserver
 It will deploy the website on your localhost https://127.0.0.1:8000
 ```
 
