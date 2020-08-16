@@ -2,7 +2,6 @@ from django.shortcuts import render,render_to_response
 from bokeh.plotting import figure, output_file, show
 from bokeh.embed import components
 import csv, io
-import pandas as pd
 from math import pi
 from django.shortcuts import render, redirect
 from django.contrib import messages
