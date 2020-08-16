@@ -129,13 +129,22 @@ def hr_upload(request):    # declaring template
 
 def graph(request):
 
-  x = [1,2,3,4,5]
-  y = [1,2,3,4,5]
+  data = HR.objects.all()
+  leaves = {1:0}
+  for item in data:
+    leave = item.leaves_applied
+    if leave in leaves.keys():
+      leaves[leave] = leaves[leave] + 1
+    else:
+      leaves[leave] = 1
 
   plot = figure(title = 'Line Graph',x_axis_label = 'X-Axis', y_axis_label = 'Y-Axis', plot_width = 400, plot_height = 400)
-
+  x = list(leaves.keys())
+  y = list(leaves.values())
+  print(x)
+  print(y)
   plot.line(x,y, line_width = 2)
 
   script,div = components(plot)
-
-  return render_to_response('bokeh1.html', {'script':script, 'div':div})
+  
+  return render(request,'bokeh1.html', {'script':script, 'div':div})

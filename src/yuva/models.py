@@ -45,6 +45,6 @@ class HR(models.Model):
   manager_id = models.IntegerField()
   doj = models.CharField(max_length=50)
   employee_status = models.CharField(max_length=50)
-  leaves_applied = models.CharField(max_length=150)  
+  leaves_applied = models.IntegerField()  
   def __str__(self):
       return self.employee_name
