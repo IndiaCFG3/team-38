@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{%static "img/logo_nobg.png"%}" rel="icon">
+    {% include "css.html"%}
+  </head>
+
+  <body data-spy="scroll" data-target="#in-this-article">
+    {% include "topbar.html" %}
+    {% include "navbar.html" %}
+    {% block content %}
+    {% endblock content %}
+
+    {% include "footer.html" %}
+    {% include "scripts.html" %}
+  </body>
+</html>
