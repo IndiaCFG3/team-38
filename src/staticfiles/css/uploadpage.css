@@ -1,0 +1,74 @@
+.service-wrap {
+  width: 100%;
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 25px;
+  border: 1px solid #000;
+}
+
+.multiple-file-upload-wrap {
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #dadada;
+  padding: 15px;
+  .mfu-clear {
+    clear: both;
+  }
+  .mfu-hide {
+    display: none;
+  }
+  .mfu-item {
+    background: #fafafa;
+    padding: 7px 7px 4px;
+  }
+  .mfu-file-number {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 1.1em;
+  }
+  .mfu-file-input {
+    display: inline-block;
+  }
+  .mfu-new-item-btn {
+    margin-top: 15px;
+    float: right;
+  }
+  .already-uploaded-files {
+    padding: 10px;
+    background: #fafafa;
+    margin-bottom: 15px;
+    .aup-title {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+    .aup-item {
+      display: block;
+      padding: 5px;
+      &:not(:last-child) {
+        border-bottom: 1px solid #dadada;
+      }
+      &:hover {
+        background: #dadada;
+      }
+    }
+    .aup-file-name {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .aup-delete-btn {
+      color: red;
+      display: inline-block;
+      float: right;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+    .aup-server-response {
+      display: none;
+      color: red;
+      padding: 5px 15px;
+      background: #fff;
+    }
+  }
+}
