@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from yuva import views as yuva_views
+from django.contrib.auth import views as auth_views
 
 from yuva import views
 
@@ -26,4 +28,8 @@ urlpatterns = [
     path('upload-csv-st/', views.st_upload, name="st_upload"),
     path('upload-csv-audit/', views.audit_upload, name="audit_upload"),
     path('upload-csv-hr/', views.hr_upload, name="hr_upload"),
+    path('', views.home, name='home'),
+    path('register/', yuva_views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
 ]

@@ -2,12 +2,45 @@ from django.shortcuts import render,render_to_response
 from bokeh.plotting import figure, output_file, show
 from bokeh.embed import components
 import csv, io
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Profile
 from .models import Support_Team
 from .models import Audit
 from .models import HR
+
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegisterForm
+
+def home(request):
+  return render(request, 'home.html')
+
+def register(request):
+  form = UserRegisterForm()
+  if request.method == 'POST':
+    form = UserRegisterForm(request.POST)
+    if form.is_valid():
+      form.save()
+      username = form.cleaned_data.get('username')
+      messages.success(request, 'Account has been created!')
+      return redirect('home')
+    else:
+      form = UserRegisterForm()
+  return render(request, 'register.html', {'form': form})
+
+# def profile(request):
+#   return render(request, 'profile.html')
+
+
+
+
+
+
+
+
+
+
 # Create your views here.# one parameter named request
 def profile_upload(request):    # declaring template
   template = "profile_upload.html"

@@ -11,12 +11,19 @@
   </head>
 
   <body data-spy="scroll" data-target="#in-this-article">
-    {% include "topbar.html" %}
+    
     {% include "navbar.html" %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-info">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
     {% block content %}
     {% endblock content %}
 
-    {% include "footer.html" %}
+   
     {% include "scripts.html" %}
   </body>
 </html>
