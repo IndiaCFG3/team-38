@@ -25,6 +25,9 @@ from yuva import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('graph/',views.graph,name="graph"),
+    path('scatterplot/',views.scatterplot,name="scatterplot"),
+    path('bargraph/',views.bargraph,name="bargraph"),
+    path('piegraph/',views.piegraph,name="piegraph"),
     path('upload-csv-st/', views.st_upload, name="st_upload"),
     path('upload-csv-audit/', views.audit_upload, name="audit_upload"),
     path('upload-csv-hr/', views.hr_upload, name="hr_upload"),

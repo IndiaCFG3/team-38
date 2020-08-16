@@ -2,6 +2,8 @@ from django.shortcuts import render,render_to_response
 from bokeh.plotting import figure, output_file, show
 from bokeh.embed import components
 import csv, io
+import pandas as pd
+from math import pi
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Profile
@@ -176,3 +178,44 @@ def graph(request):
   script,div = components(plot)
   
   return render(request,'bokeh1.html', {'script':script, 'div':div})
+
+def scatterplot(request):
+
+  plot = figure(plot_width=400, plot_height=400)
+  plot.circle([1,2,3,4,5],[6,7,5,2,1],size=20,color="navy",alpha=0.5)
+  script,div = components(plot)
+
+  return render(request,'scatterplot.html',{'script':script,'div':div})
+
+def bargraph(request):
+
+  plot = figure(plot_width=400, plot_height=400)
+  plot.vbar(x=[1,2,3,4,5],width=0.5,bottom=0, top = [1.2,2.5,3.7,2.9,4.8],color="firebrick")
+  script,div = components(plot)
+
+  return render(request,'bargraph.html',{'script':script,'div':div})
+
+def piegraph(request):
+  chart_colors = ['#44e5e2', '#e29e44', '#e244db',
+                '#d8e244', '#eeeeee', '#56e244', '#007bff', 'black']
+
+  x={'Yes':270,
+    'No':180,
+    'Maybe':70,
+    'idk':20}
+  data = pd.Series(x).reset_index(name='value').rename(columns={'index':'choice'})
+  data['angle'] = data['value']/data['value'].sum() * 2*pi
+  data['color'] = chart_colors[:len(x)]
+
+  plot= figure(plot_height=350,title="Pie Chart",toolbar_location=None,
+           tools="hover", tooltips="@choice: @value", x_range=(-0.5, 1.0))
+  plot.wedge(x=0, y=1, radius=0.4,
+        start_angle=0, end_angle=0,
+        line_color="white",fill_color='color', source=data)
+
+  plot.axis.axis_label=None
+  plot.axis.visible=False
+  plot.grid.grid_line_color = None
+  script,div = components(plot)
+
+  return render(request,'piegraph.html',{'script':script,'div':div})
