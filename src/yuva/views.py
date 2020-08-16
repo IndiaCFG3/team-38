@@ -11,6 +11,8 @@ from .models import Support_Team
 from .models import Audit
 from .models import HR
 
+from django.contrib.auth import authenticate,login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
@@ -42,7 +44,7 @@ def register(request):
 
 
 
-
+@login_required
 # Create your views here.# one parameter named request
 def profile_upload(request):    # declaring template
   template = "profile_upload.html"
@@ -71,6 +73,7 @@ def profile_upload(request):    # declaring template
   context = {}
   return render(request, template, context)
 
+@login_required
 def st_upload(request):    # declaring template
   template = "profile_upload.html"
   data = Support_Team.objects.all()# prompt is a context variable that can have different values      depending on their context
@@ -102,6 +105,7 @@ def st_upload(request):    # declaring template
   context = {}
   return render(request, template, context)
 
+@login_required
 def audit_upload(request):    # declaring template
   template = "profile_upload.html"
   data = Audit.objects.all()# prompt is a context variable that can have different values      depending on their context
@@ -132,6 +136,7 @@ def audit_upload(request):    # declaring template
   context = {}
   return render(request, template, context)
 
+@login_required
 def hr_upload(request):    # declaring template
   template = "profile_upload.html"
   data = HR.objects.all()# prompt is a context variable that can have different values      depending on their context
@@ -162,6 +167,7 @@ def hr_upload(request):    # declaring template
   context = {}
   return render(request, template, context)
 
+@login_required
 def graph(request):
 
   data = HR.objects.all()

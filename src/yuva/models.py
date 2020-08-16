@@ -48,3 +48,6 @@ class HR(models.Model):
   leaves_applied = models.IntegerField()  
   def __str__(self):
       return self.employee_name
+
+# class Categories(models.Model):
+#   student_cat = models.ForeignKey()
