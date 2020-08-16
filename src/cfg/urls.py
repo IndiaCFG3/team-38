@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
+from yuva import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('upload-csv-st/', views.st_upload, name="st_upload"),
+    path('upload-csv-audit/', views.audit_upload, name="audit_upload"),
+    path('upload-csv-hr/', views.hr_upload, name="hr_upload"),
 ]
