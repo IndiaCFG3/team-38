@@ -30,18 +30,7 @@ def register(request):
     else:
       form = UserRegisterForm()
   return render(request, 'register.html', {'form': form})
-
-# def profile(request):
-#   return render(request, 'profile.html')
-
-
-
-
-
-
-
-
-
+  
 @login_required
 # Create your views here.# one parameter named request
 def profile_upload(request):    # declaring template
