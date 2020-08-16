@@ -137,10 +137,10 @@ def graph(request):
       leaves[leave] = leaves[leave] + 1
     else:
       leaves[leave] = 1
-
+  coord = dict(sorted(leaves.items()))
   plot = figure(title = 'Line Graph',x_axis_label = 'X-Axis', y_axis_label = 'Y-Axis', plot_width = 400, plot_height = 400)
-  x = list(leaves.keys())
-  y = list(leaves.values())
+  x = list(coord.keys())
+  y = list(coord.values())
   print(x)
   print(y)
   plot.line(x,y, line_width = 2)
