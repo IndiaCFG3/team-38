@@ -38,4 +38,5 @@ urlpatterns = [
     path('support_team/', views.support_team, name="hr_upload"),
     path('Audit/', views.audit, name="hr_upload"),
     path('HR_view/', views.HR_view, name="hr_upload"),
+    path('upload/', views.upload, name="upload"),
 ]
