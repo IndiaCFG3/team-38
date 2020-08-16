@@ -3,22 +3,24 @@
 {% block content %}
  <div class="container" style="width: 500px; padding-top: 50px ">
      <div class="container-fluid">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
-                    Log In
-                </legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+        <div style="padding: 10px">
+           <form method="POST">
+               {% csrf_token %}
+               <fieldset class="form-group">
+                   <legend class="border-bottom mb-4">
+                       Log In
+                   </legend>
+                   {{ form|crispy }}
+               </fieldset>
+               <div class="form-group">
+                   <button class="btn btn-outline-info" type="submit">Login</button>
+               </div>
+           </form>
+           <div class="border-top pt-3">
+               <small class="text-muted">
+                   Need an account? <a href="{% url 'register' %}"> Register here!</a>
+               </small>
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Need an account? <a href="{% url 'register' %}"> Register here!</a>
-            </small>
         </div>
      </div>
     
