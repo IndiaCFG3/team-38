@@ -242,7 +242,7 @@ def HR_view(request):
 
 def upload(request):
   template = "uploadpage.html"
-  data = Support_Team.objects.all()# prompt is a context variable that can have different values      depending on their context
+  data = HR.objects.all()# prompt is a context variable that can have different values      depending on their context
   prompt = {
       'order': 'Order of the CSV should be name, email, address,    phone, profile',
       'profiles': data    
@@ -257,19 +257,18 @@ def upload(request):
   io_string = io.StringIO(data_set)
   next(io_string)
   for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-    _, created = Support_Team.objects.update_or_create(
-        candidate_id = column[0],
-        name = column[1],
-        email = column[2],
-        batch_id = column[3],
-        enrolled_course = column[4],
-        enrolled_date = column[5],
-        attendance = column[6],
-        course_status = column[7],
-        placement_status = column[8]
+    _, created = HR.objects.update_or_create(
+          employee_id = column[0],
+          employee_name = column[1],
+          employee_phone = column[2],
+          employee_email = column[3],
+          manager_id = column[4],
+          doj = column[5],
+          employee_status = column[6],
+          leaves_applied = column[7],
     )
   context = {}
-  return render(request, template, context)
+  return render(request, 'home.html', context)
 
 def graph(request):
 
