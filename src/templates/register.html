@@ -2,22 +2,25 @@
 {% load crispy_forms_tags %}
 {% block content %}
  <div class="container" style="width: 500px; padding-top: 50px">
-     <form method="POST">
-         {% csrf_token %}
-         <fieldset class="form-group">
-             <legend class="border-bottom mb-4">
-                 Register now!
-             </legend>
-             {{ form|crispy }}
-         </fieldset>
-         <div class="form-group">
-             <button class="btn btn-outline-info" type="submit">Register</button>
-         </div>
-     </form>
-     <div class="border-top pt-3">
-         <small class="text-muted">
-             Already have aan account? <a href="{% url 'login' %}">Login Here</a>
-         </small>
+    <div class="card">
+      <div style="padding: 10px">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Register now!
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Register</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have aan account? <a href="{% url 'login' %}">Login Here</a>
+            </small>
+        </div>
      </div>
  </div>
 {% endblock content %}
