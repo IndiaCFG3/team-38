@@ -35,4 +35,7 @@ urlpatterns = [
     path('register/', yuva_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('support_team/', views.support_team, name="hr_upload"),
+    path('Audit/', views.audit, name="hr_upload"),
+    path('HR_view/', views.HR_view, name="hr_upload"),
 ]

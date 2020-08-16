@@ -155,7 +155,92 @@ def hr_upload(request):    # declaring template
   context = {}
   return render(request, template, context)
 
-@login_required
+def support_team(request):
+  data = HR.objects.all()
+  leaves = {}
+  for item in data:
+    leave = item.leaves_applied
+    if leave in leaves.keys():
+      leaves[leave] = leaves[leave] + 1
+    else:
+      leaves[leave] = 1
+  coord = dict(sorted(leaves.items()))
+  plot1 = figure(title = 'Line Graph',x_axis_label = 'X-Axis', y_axis_label = 'Y-Axis', plot_width = 400, plot_height = 400)
+  x = list(coord.keys())
+  y = list(coord.values())
+  print(x)
+  print(y)
+  plot1.line(x,y, line_width = 2)
+
+  script_1,div_1 = components(plot1)
+
+  plot2 = figure(plot_width=400, plot_height=400)
+  plot2.circle([1,2,3,4,5],[6,7,5,2,1],size=20,color="navy",alpha=0.5)
+  script_2,div_2 = components(plot2)
+
+  plot3 = figure(plot_width=400, plot_height=400)
+  plot3.vbar(x=[1,2,3,4,5],width=0.5,bottom=0, top = [1.2,2.5,3.7,2.9,4.8],color="firebrick")
+  script_3,div_3 = components(plot3)
+  return render(request,'support_team.html',{'script_1':script_1,'div_1':div_1,'script_2':script_2,'div_2':div_2,'script_3':script_3,'div_3':div_3})
+
+def audit(request):
+  data = HR.objects.all()
+  leaves = {}
+  for item in data:
+    leave = item.leaves_applied
+    if leave in leaves.keys():
+      leaves[leave] = leaves[leave] + 1
+    else:
+      leaves[leave] = 1
+  coord = dict(sorted(leaves.items()))
+  plot1 = figure(title = 'Line Graph',x_axis_label = 'X-Axis', y_axis_label = 'Y-Axis', plot_width = 400, plot_height = 400)
+  x = list(coord.keys())
+  y = list(coord.values())
+  print(x)
+  print(y)
+  plot1.line(x,y, line_width = 2)
+
+  script_1,div_1 = components(plot1)
+
+  plot2 = figure(plot_width=400, plot_height=400)
+  plot2.circle([1,2,3,4,5],[6,7,5,2,1],size=20,color="navy",alpha=0.5)
+  script_2,div_2 = components(plot2)
+
+  plot3 = figure(plot_width=400, plot_height=400)
+  plot3.vbar(x=[1,2,3,4,5],width=0.5,bottom=0, top = [1.2,2.5,3.7,2.9,4.8],color="firebrick")
+  script_3,div_3 = components(plot3)
+  return render(request,'audit.html',{'script_1':script_1,'div_1':div_1,'script_2':script_2,'div_2':div_2,'script_3':script_3,'div_3':div_3})
+
+
+def HR_view(request):
+  data = HR.objects.all()
+  leaves = {}
+  for item in data:
+    leave = item.leaves_applied
+    if leave in leaves.keys():
+      leaves[leave] = leaves[leave] + 1
+    else:
+      leaves[leave] = 1
+  coord = dict(sorted(leaves.items()))
+  plot1 = figure(title = 'Line Graph',x_axis_label = 'X-Axis', y_axis_label = 'Y-Axis', plot_width = 400, plot_height = 400)
+  x = list(coord.keys())
+  y = list(coord.values())
+  print(x)
+  print(y)
+  plot1.line(x,y, line_width = 2)
+
+  script_1,div_1 = components(plot1)
+
+  plot2 = figure(plot_width=400, plot_height=400)
+  plot2.circle([1,2,3,4,5],[6,7,5,2,1],size=20,color="navy",alpha=0.5)
+  script_2,div_2 = components(plot2)
+
+  plot3 = figure(plot_width=400, plot_height=400)
+  plot3.vbar(x=[1,2,3,4,5],width=0.5,bottom=0, top = [1.2,2.5,3.7,2.9,4.8],color="firebrick")
+  script_3,div_3 = components(plot3)
+  return render(request,'HR.html',{'script_1':script_1,'div_1':div_1,'script_2':script_2,'div_2':div_2,'script_3':script_3,'div_3':div_3})
+
+
 def graph(request):
 
   data = HR.objects.all()
