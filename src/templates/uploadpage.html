@@ -1,0 +1,24 @@
+<div class="service-wrap">
+  <div class="multiple-file-upload-wrap multiple-file-upload">
+    <div class="already-uploaded-files">
+      <div class="aup-title">Upload Files here: </div>
+      <div class="aup-item forDelete">
+        <div class="aup-server-response server-response"></div>
+        <div class="mfu-clear"></div>
+      </div>
+      <div class="aup-item forDelete">
+        <div class="aup-server-response server-response"></div>
+        <div class="mfu-clear"></div>
+      </div>
+    </div>
+    <div class="mfu-hide" id="mfu-item-template">
+      <div class="mfu-item">
+        <label class="mfu-file-number" for="mfu-file-{{ITEM_NUMBER}}">{ITEM_NUMBER}</label>
+        <input class="mfu-file-input" type="file" name="files[]" id="mfu-file-{{ITEM_NUMBER}}" />
+      </div>
+    </div>
+    <div id="mfu-items-container"></div>
+    <div class="mfu-new-item-btn btn btn-primary" id="mfu-new-item-btn">Submit</div>
+    <div class="mfu-clear"></div>
+  </div>
+</div>
